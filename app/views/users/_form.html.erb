@@ -1,4 +1,24 @@
 <%= form_with(model: user) do |form| %>
+  
+  <form action="<%= users_url %>" method="POST">
+  <label for="username">Username</label>
+  <input
+    type="text"
+    name="user[username]"
+    id="username"
+    value="<%= user.username %>"
+  >
+  <br>
+  <form action="<%= users_url %>" method="POST">
+  <label for="password">Password</label>
+  <input
+    type="text"
+    name="user[password]"
+    id="password"
+    value="<%= user.password %>"
+  >
+  <br>
+
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -15,3 +35,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
+

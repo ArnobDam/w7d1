@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
+
+
   # GET /users
   # def index
   #   @users = User.all
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_url(@user) #, notice: "User was successfully created."
+      redirect_to cats_url #, notice: "User was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

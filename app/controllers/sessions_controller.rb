@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def new
-        render new_user_url
+        redirect_to new_user_url
     end
 
     def create
