@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
 
     def new
-        redirect_to new_user_url
+        render :new
+        # redirect_to new_user_url
     end
 
     def create
-        @user = User.find_by_credentials(username,password)
+        @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+        # debugger
         session[:session_token] = @user.reset_session_token! # maybe @session_token or self.session_token
         redirect_to cats_url
     end
